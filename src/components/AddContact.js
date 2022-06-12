@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
@@ -44,8 +44,6 @@ function AddContact() {
       number
     }
     
-    console.log("Data =>", data);
-
     dispatch({type: "ADD_CONTACT", payload: data});
     toast.success("Student added Successfully");
     navigate("/");

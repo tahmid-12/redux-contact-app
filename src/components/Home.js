@@ -23,7 +23,7 @@ function Home() {
                 </Link>
             </div>
             <div className="col-md-10 mx-auto">
-                <thead className="table table-hover">
+                <table className="table table-hover">
                     <thead className="text-white bg-dark text-center">
                         <tr>
                             <th scope="col">#</th>
@@ -55,7 +55,7 @@ function Home() {
                             })
                         }
                     </tbody>
-                </thead>
+                </table>
             </div>
         </div>
     </div>

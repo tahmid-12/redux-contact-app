@@ -15,11 +15,11 @@ function AddContact() {
   const handleSubmit = (e) => {
       e.preventDefault();
       
-      const checkEmail = contacts.contactReducer.find((contact) => contact.email === email && email);
+      const checkEmail = contacts.contactReducer.find((contact) => contact.email === email);
       
       const checkNumber = contacts.contactReducer.find((contact) => contact.number === parseInt(number));
 
-      const checkName = contacts.contactReducer.find((contact) => contact.name === name && name);
+      const checkName = contacts.contactReducer.find((contact) => contact.name === name);
 
       if(!email || !number || !name){
           return toast.warning("Please fill in all fields");

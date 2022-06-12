@@ -1,7 +1,7 @@
-import { TaskAbortError } from '@reduxjs/toolkit';
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 function AddContact() {
   const [name, setName] = useState("");
@@ -9,9 +9,8 @@ function AddContact() {
   const [number, setNumber] = useState("");
 
   const contacts = useSelector((state) => state);
-  console.log("Contacts in Add Page =>", contacts.contactReducer);
-
-  
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   
   const handleSubmit = (e) => {
       e.preventDefault();
@@ -38,7 +37,18 @@ function AddContact() {
         return toast.error("This name already exists");
     }
 
+    const data = {
+      id: contacts.contactReducer[contacts.contactReducer.length - 1].id + 1,
+      name,
+      email,
+      number
+    }
+    
+    console.log("Data =>", data);
 
+    dispatch({type: "ADD_CONTACT", payload: data});
+    toast.success("Student added Successfully");
+    navigate("/");
   }
   
 

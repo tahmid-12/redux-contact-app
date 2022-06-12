@@ -1,6 +1,6 @@
 import { TaskAbortError } from '@reduxjs/toolkit';
 import React, { useState } from 'react'
-// import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
 function AddContact() {
@@ -8,21 +8,19 @@ function AddContact() {
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
 
-//   const contacts = useSelector((state) => state);
-//   console.log("Contacts in Add Page =>", contacts);
+  const contacts = useSelector((state) => state);
+  console.log("Contacts in Add Page =>", contacts.contactReducer);
 
   
   
   const handleSubmit = (e) => {
       e.preventDefault();
       
-      const checkEmail = state => state.find((contact) => contact.email === email && email);
-      console.log(checkEmail);
+      const checkEmail = contacts.contactReducer.find((contact) => contact.email === email && email);
       
-      const checkNumber = state => state.find((contact) => contact.number === parseInt(number));
-    //   console.log(checkNumber);
+      const checkNumber = contacts.contactReducer.find((contact) => contact.number === parseInt(number));
 
-      const checkName = state => state.find((contact) => contact.name === name && name);
+      const checkName = contacts.contactReducer.find((contact) => contact.name === name && name);
 
       if(!email || !number || !name){
           return toast.warning("Please fill in all fields");

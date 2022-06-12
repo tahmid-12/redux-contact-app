@@ -1,3 +1,5 @@
+import { createSlice } from "@reduxjs/toolkit";
+
 const initialState = [
     {
         id: 0,
@@ -19,5 +21,7 @@ const contactReducer = (state = initialState, action) => {
             return state;
     }
 }
+
+
 
 export default contactReducer;
